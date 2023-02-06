@@ -1,5 +1,5 @@
 import { Box, IconButton, InputBase, useTheme } from '@mui/material'
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { ColorModeContext, tokens } from '../../theme';
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
@@ -22,9 +22,26 @@ const Topbar = () => {
           <SearchIcon />
         </IconButton>
       </Box>
-      <IconButton></IconButton>
+      <Box display="flex">
+        <IconButton onClick={colorMode.toggleColorMode}>
+          {theme.palette.mode === "dark" ? (
+            <DarkModeOutlinedIcon />
+          ) : (
+            <LightModeOutlinedIcon />
+          )}
+        </IconButton>
+        <IconButton>
+          <NotificationsOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <SettingsOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <PersonOutlinedIcon />
+        </IconButton>
+      </Box>
     </Box>
   )
 }
 
-export default Topbar
+export default Topbar;
